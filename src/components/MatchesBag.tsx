@@ -3,7 +3,7 @@ import '../styles/App.css';
 type MatchesBagProps = {
     matchesLeft: number;
     userTurn: boolean; 
-    onBagClick: () => void; 
+    onBagClick: (takenMatches: number) => void; 
 };
 
 export default function MatchesBag({ matchesLeft, userTurn, onBagClick }: MatchesBagProps) {
@@ -11,7 +11,7 @@ export default function MatchesBag({ matchesLeft, userTurn, onBagClick }: Matche
         <div className="matches-bag">
             <p 
                 className={`bag ${userTurn ? 'cursor-pointer' : ''}`} 
-                onClick={userTurn ? onBagClick : undefined} 
+                onClick={userTurn ? () => onBagClick(1) : undefined} 
             >
                 📦
             </p>
