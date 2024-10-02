@@ -15,13 +15,10 @@ function App() {
      
   };
 
-  const increment = () => {
-    setMatchesLeft(matchesLeft + 1);
-};
 
 const decrement = () => {
    if (matchesLeft > 0) {
-    setMatchesLeft(matchesLeft - 1);
+    setMatchesLeft(matchesLeft => matchesLeft - 1);
    }
 };
   return (
