@@ -7,6 +7,7 @@ type MatchesBagProps = {
 };
 
 export default function MatchesBag({ matchesLeft, userTurn, onBagClick }: MatchesBagProps) {
+    
     return (
         <div className="matches-bag">
             <p 
