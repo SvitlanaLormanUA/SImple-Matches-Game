@@ -111,3 +111,33 @@
 .not-visible {
   display: none;
 }
+.the-game {
+  margin-top: 20%;
+}
+.func-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  margin-top: 10em;
+}
+.func-buttons button {
+  padding: 1em;
+  font-size: large;
+  border-radius: 0.5em;
+  border: none;
+  color: white;
+}
+.func-buttons button:nth-child(1) {
+  background-color: #08b067;
+}
+.func-buttons button:nth-child(2) {
+  background-color: #1d7fff;
+}
+.func-buttons button:nth-child(1):hover {
+  cursor: pointer;
+  background-color: #0a7850;
+}
+.func-buttons button:nth-child(2):hover {
+  cursor: pointer;
+  background-color: #1052a9;
+}

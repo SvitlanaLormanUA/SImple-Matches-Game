@@ -20,3 +20,10 @@ export interface MatchesBagProps {
     userTurn: boolean; 
     onBagClick: (takenMatches: number) => void; 
 };
+export interface GameProps {
+    userTurn: boolean;
+  }
+ export interface FunctButtonProps  {
+    resetGame: () => void;
+  };
+  

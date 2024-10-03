@@ -1,8 +1,8 @@
-import Game from './components/Game';
+import Mode from './Mode';
 function App() {
 return (
   <>
-  <Game/>
+  <Mode/>
   </>
 );
   

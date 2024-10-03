@@ -1,0 +1,24 @@
+.mode {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20%;
+}
+.mode-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+}
+
+.mode-buttons button {
+    background-color: #DB7093;
+    border: none;
+    color: white;
+    padding: 1em;
+    border-radius: 0.5em;
+    font-size: large;
+}
+.mode-buttons button:hover {
+    cursor: pointer;
+    background-color: #b02b57;
+}

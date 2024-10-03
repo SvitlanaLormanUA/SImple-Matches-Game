@@ -2,15 +2,17 @@
 import { useState, useEffect } from 'react';
 import '../styles/App.css';
 
-import Computer from './Computer';
-import User from './User';
-import MatchesBag from './MatchesBag';
-import ButtonMenu from './ButtonMenu';
+import Computer from '../components/Computer';
+import User from '../components/User';
+import MatchesBag from '../components/MatchesBag';
+import ButtonMenu from '../components/ButtonMenu';
+import FunctButton from './FunctButtons';
 
+import { GameProps } from '../interfaces/GameInterfaces';
 
-export  default function Game() {
+export default function Game({ userTurn: initialUserTurn }: GameProps) {
   const [matchesLeft, setMatchesLeft] = useState(25);
-  const [userTurn, setUserTurn] = useState(true);
+  const [userTurn, setUserTurn] = useState(initialUserTurn);
 
   const [userMatches, setUserMatches] = useState(0);
   const [computerMatches, setComputerMatches] = useState(0);
@@ -46,7 +48,7 @@ decrement(takenMatches);
 
   const resetGame = () => {
     setMatchesLeft(25);
-    setUserTurn(true);
+    setUserTurn(initialUserTurn);
     setWinner('');
     setComputerMatches(0);
     setUserMatches(0);
@@ -55,6 +57,7 @@ decrement(takenMatches);
 
   return (
     <>
+    <div className="the-game">
       <div className="turn">
         <h1>{userTurn ? 'Your turn!' : 'The computer`s turn!'}</h1>
       </div>
@@ -82,7 +85,8 @@ decrement(takenMatches);
     </div>
         <User  thisPlayerMatches={userMatches} />
       </div>
-   
+      <FunctButton resetGame={resetGame} />
+      </div>
     </>
   );
 }
