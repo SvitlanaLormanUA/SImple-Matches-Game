@@ -1,18 +1,17 @@
 import { useState } from 'react';
-import { PlayerProps } from '../interfaces/PlayerProps';
+import { UserProps } from '../interfaces/GameInterfaces';
 import MatchesBag from './MatchesBag'; 
 
-export default function User({ matchesLeft,  turn, onBagClick, handleBagClick, thisPlayerMatches }: PlayerProps) {
-
-    const [userMatches, setUserMatches] = useState(thisPlayerMatches);
-
-
+export default function User({ thisPlayerMatches }: UserProps) {
                    
     return (
         <>
+        <div className='User-data'>
+           <h2>You</h2>
              <div className='matches-amount'>
-                <p>{matchesLeft}</p>
+                <p>{thisPlayerMatches}</p>
                 <p>🥢</p>
+            </div>
             </div>
         </>
     );

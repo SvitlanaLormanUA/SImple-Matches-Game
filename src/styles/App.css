@@ -19,3 +19,95 @@
   flex-wrap: wrap;
   
 }
+.button-menu {
+  display: none;
+}
+
+.button-menu.visible {
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+.button-menu.hidden {
+  display: none; 
+}
+.turn {
+  text-align: center;
+}
+.users-funct-for-taking-matches {
+  display: flex;
+  gap: 2em;
+}
+.takeMatches-option {
+  padding: 1em;
+  border-radius: 0.5em;
+  border: 0.5px solid;
+  outline: none;
+}
+.takeMatches-option:nth-child(1){
+  background-color: #b3ffff; 
+}
+.takeMatches-option:nth-child(2){
+  background-color: 	#b3b3ff; 
+}
+.takeMatches-option:nth-child(3){
+  background-color: #ffb3ff; 
+}
+
+.takeMatches-option:hover {
+ cursor: pointer;
+ color: white;
+}
+.takeMatches-option:nth-child(1):hover {
+  background-color: #4fa4b3; 
+  border-color: #285656;
+}
+.takeMatches-option:nth-child(2):hover {
+  background-color: #8080ff; 
+  border-color: #3e3e88;
+}
+.takeMatches-option:nth-child(3):hover {
+  background-color: #ff80ff; 
+  border-color: #883e88;
+}
+.matches-amount {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 1em;
+}
+.Computer-data,
+.User-data {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.tooltip {
+  position: relative;
+
+}
+
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+ 
+  
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+.not-visible {
+  display: none;
+}

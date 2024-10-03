@@ -1,13 +1,15 @@
 import { useEffect, useState, useRef } from 'react';
 
-import { PlayerProps } from '../interfaces/PlayerProps';
+import { ComputerProps } from '../interfaces/GameInterfaces';
+import { set } from 'mongoose';
 
 
 export default function Computer({
    matchesLeft, 
     turn,
     handleBagClick,
-    thisPlayerMatches }: PlayerProps) {
+    thisPlayerMatches,
+    setPlayerMatches }: ComputerProps) {
   
   const thisPlayerMatchesRef = useRef(thisPlayerMatches);
 
@@ -17,6 +19,7 @@ export default function Computer({
         let computerTurn = 0;
         if (matchesLeft % 4 === 0) {
           computerTurn = 3;
+          
         } else if (matchesLeft % 4 === 3) {
           computerTurn = 3;
         } else if (matchesLeft % 4 === 2) {
@@ -25,9 +28,10 @@ export default function Computer({
           computerTurn = 1;
         }
         thisPlayerMatchesRef.current += computerTurn;
+        setPlayerMatches(thisPlayerMatchesRef.current);
         handleBagClick(computerTurn);
       
-      }, 3000); 
+      }, 1000); 
   
     
       return () => clearTimeout(timer);
@@ -36,9 +40,12 @@ export default function Computer({
   
       return (
         <>
+        <div className='Computer-data'>
+           <h2>Computer</h2>
           <div className='matches-amount'>
-            <p>{thisPlayerMatchesRef.current}</p>
+            <p>{thisPlayerMatches}</p>
             <p>🥢</p>
+          </div>
           </div>
         </>
       );
