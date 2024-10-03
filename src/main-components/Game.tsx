@@ -10,8 +10,9 @@ import FunctButton from './FunctButtons';
 
 import { GameProps } from '../interfaces/GameInterfaces';
 
-export default function Game({ userTurn: initialUserTurn }: GameProps) {
-  const [matchesLeft, setMatchesLeft] = useState(25);
+export default function Game({ userTurn: initialUserTurn, numberOfMatches: initialNumberOfMatches,
+  maxMatchesToTake: initialMaxMatchesToTake }: GameProps) {
+  const [matchesLeft, setMatchesLeft] = useState(initialNumberOfMatches);
   const [userTurn, setUserTurn] = useState(initialUserTurn);
 
   const [userMatches, setUserMatches] = useState(0);
@@ -22,36 +23,51 @@ export default function Game({ userTurn: initialUserTurn }: GameProps) {
 
 
   const handleBagClick = (takenMatches: number) => {
-decrement(takenMatches);
+      decrement(takenMatches);
+      determineWinner();
   };
 
   const decrement = (takenMatches: number) => {
-    if (matchesLeft >= 0) {
+    if (Math.floor(matchesLeft) > 0) {
       setMatchesLeft(prevMatchesLeft => prevMatchesLeft - takenMatches);
+      determineWinner();
       setUserTurn(!userTurn);
     } 
     determineWinner();
   };
 
+
   const determineWinner = () => {
-    if (matchesLeft === 0) {
-      setWinner(userTurn ? 'Computer' : 'User');
-    } 
-  };
+    if (Math.floor(matchesLeft) == 0) {
+      if (userMatches % 2 === 0) {
+        setWinner('You');
+      } else if (computerMatches % 2 === 0) {
+        setWinner('Computer');
+      }
+    }
+  }
+  
 
   useEffect(() => {
+    let winnerStr: string = '';
     if (winner) {
-      alert(`${winner} wins the game!`);
+      if (winner === 'You') {
+        winnerStr = `You are the winner!`;
+      } else if (winner === 'Computer') {
+        winnerStr = `Computer is the winner!`;
+      }
+      alert(winnerStr);
       resetGame(); 
     }
   }, [winner]);
 
   const resetGame = () => {
-    setMatchesLeft(25);
-    setUserTurn(initialUserTurn);
-    setWinner('');
     setComputerMatches(0);
     setUserMatches(0);
+    setMatchesLeft(initialNumberOfMatches);
+    setUserTurn(initialUserTurn);
+    setWinner('');
+    
     
   };
 
@@ -81,6 +97,8 @@ decrement(takenMatches);
           onTakeMatches= {decrement} 
           userMatches={userMatches}
           setUserMatches={setUserMatches}
+          maxNumOfMatches={initialMaxMatchesToTake}
+          numOfMatches={matchesLeft}
         />
     </div>
         <User  thisPlayerMatches={userMatches} />

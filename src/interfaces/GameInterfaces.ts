@@ -14,6 +14,8 @@ export interface ButtonMenuProps {
     onTakeMatches: (takenMatches: number) => void; 
     userMatches: number;
     setUserMatches: (matches: number) => void;
+    maxNumOfMatches: number;
+    numOfMatches: number;
 }
 export interface MatchesBagProps {
     matchesLeft: number;
@@ -22,6 +24,9 @@ export interface MatchesBagProps {
 };
 export interface GameProps {
     userTurn: boolean;
+    numberOfMatches: number; //2*n + 1 --> user enterns "n"
+    maxMatchesToTake: number;
+
   }
  export interface FunctButtonProps  {
     resetGame: () => void;

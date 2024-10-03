@@ -22,3 +22,65 @@
     cursor: pointer;
     background-color: #b02b57;
 }
+.setValues {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1em;
+    margin-top: 10%;
+}
+.numInputContainer {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.numInputContainer label {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.numInputContainer input {
+    width: 200px;
+    padding: 10px;
+    font-size: 1em;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.numInputContainer input:focus {
+    border-color: #007bff;
+}
+
+.submitNumsBtn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+    max-width: 10em;
+    align-self: center;
+}
+
+.submitNumsBtn:hover {
+    background-color: #0056b3;
+}
+
+.submitNumsBtn:active {
+    background-color: #004494;
+}
+
+@media (max-width: 600px) {
+    .numInputContainer input {
+        width: 100%;
+    }
+}
